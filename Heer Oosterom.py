@@ -18,11 +18,11 @@ async def on_ready():
     print('bot is ready!')
 
 @client.event
-async def on_member_join(member):
+async def on_member_join(member, ctx):
     print(f'{member} has joined the server!')
 
 @client.event
-async def on_member_remove(member):
+async def on_member_remove(member, ctx):
     print(f'{member} has left the server')
 
 @client.command()
@@ -54,7 +54,7 @@ async def help(ctx):
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(f'mijns ping is {round(client.latency * 1000)} ms')
+    await ctx.send(f'mijn ping is {round(client.latency * 1000)} ms')
 
 @client.command()
 async def mysterie(ctx):
