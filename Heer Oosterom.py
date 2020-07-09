@@ -41,13 +41,13 @@ async def help(ctx):
     embed.add_field(name = '.kcv', value = 'laat mij vertellen over kcv', inline = False)
     embed.add_field(name = '.waarom', value = 'daarom')
     embed.add_field(name = '.ping', value = 'zie mijn ping', inline = False)
-    embed.add_field(name = 'mysterie', value = 'wat zal dit command ons brengen?', inline = False)
+    embed.add_field(name = '.mysterie', value = 'wat zal dit command ons brengen?', inline = False)
     embed.add_field(name = '.praise', value = 'praise mij', inline = False)
     await ctx.send(embed=embed)
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(round(client.latency*1000))
+    await ctx.send(f'mijns ping is {round(client.latency * 1000)} ms')
 
 @client.command()
 async def mysterie(ctx):
