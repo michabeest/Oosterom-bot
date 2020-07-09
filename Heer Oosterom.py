@@ -1,10 +1,16 @@
 import discord
 import time
+import praw
+import random
 from discord.ext import commands
 
 client = commands.Bot(command_prefix = '.')
 
 client.remove_command('help')
+
+reddit = praw.Reddit(client_id = 'DkVy9B-_J5k5Hg', client_secret = 'e1iyuhHdcEQkATBgD-PdcOz3_lI', user_agent = 'micha')
+
+
 
 @client.event
 async def on_ready():
@@ -43,6 +49,7 @@ async def help(ctx):
     embed.add_field(name = '.ping', value = 'zie mijn ping', inline = False)
     embed.add_field(name = '.mysterie', value = 'wat zal dit command ons brengen?', inline = False)
     embed.add_field(name = '.praise', value = 'praise mij', inline = False)
+    embed.add_field(name = '.meme', value = 'ik stuur je een meme uit r/memes', inline = False)
     await ctx.send(embed=embed)
 
 @client.command()
@@ -56,5 +63,15 @@ async def mysterie(ctx):
 @client.command()
 async def praise(ctx):
     await ctx.send('mijn dank is groot!')
+
+@client.command()
+async def meme(ctx):
+    memes_submissions = reddit.subreddit('memes').hot()
+    post_to_pick = random.randint(1, 40)
+    for i in range(0, post_to_pick):
+        submission = next(x for x in memes_submissions if not x.stickied)
+
+    await ctx.send(submission.url)
+
 
 client.run('NzI5MDMyNDI4NTI5NjQ3NjQ2.XwDCxA.TYZzVhsuTtr2uLhHmM1AFcKssxU')
