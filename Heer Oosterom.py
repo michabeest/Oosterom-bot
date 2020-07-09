@@ -39,11 +39,22 @@ async def help(ctx):
     embed.add_field(name = '.help', value = 'zie de commands die ik heb', inline = False)
     embed.add_field(name = '.hallo', value = 'zeg hallo', inline = False)
     embed.add_field(name = '.kcv', value = 'laat mij vertellen over kcv', inline = False)
+    embed.add_field(name = '.waarom', value = 'daarom')
     embed.add_field(name = '.ping', value = 'zie mijn ping', inline = False)
+    embed.add_field(name = 'mysterie', value = 'wat zal dit command ons brengen?', inline = False)
+    embed.add_field(name = '.praise', value = 'praise mij', inline = False)
     await ctx.send(embed=embed)
 
 @client.command()
 async def ping(ctx):
     await ctx.send(round(client.latency*1000))
+
+@client.command()
+async def mysterie(ctx):
+    await ctx.send('https://gph.is/2ehdc0q')
+
+@client.command()
+async def praise(ctx):
+    await ctx.send('mijn dank is groot!')
 
 client.run('NzI5MDMyNDI4NTI5NjQ3NjQ2.XwDCxA.TYZzVhsuTtr2uLhHmM1AFcKssxU')
