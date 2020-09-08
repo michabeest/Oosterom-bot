@@ -76,4 +76,4 @@ async def meme(ctx):
 async def retorica(ctx):
     await ctx.send('Retorica (van het Oudgriekse woord ῥήτωρ, rhêtôr, spreker, leraar; oude Nederlandse spelling rhetorica met rh-), letterlijk redenaarskunst, of welsprekendheid, is de kunst van het spreken in het openbaar. Retorica, dat uit de klassieke oudheid is voortgekomen, is daarmee de oudste westerse teksttheorie. De term staat voor welsprekendheid, maar in uitgebreide zin slaat het op effectief spreken en schrijven en de kunst van het overtuigen. Men gebruikt het begrip dus zowel voor de theorie – de leer van overtuigend spreken en schrijven of retorica – als voor de praktijk ervan. ')
 
-client.run('NzI5MDMyNDI4NTI5NjQ3NjQ2.XwinSw.12pLleJ4uKZ5rY8xzECL_wEyxao')
+client.run('')
