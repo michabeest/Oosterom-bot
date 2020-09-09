@@ -15,13 +15,6 @@ async def on_ready():
     await client.change_presence(status = discord.Status.online, activity = discord.Game('Retorica'))
     print('bot is ready!')
 
-@client.event
-async def on_member_join(member, ctx):
-    print(f'{member} has joined the server!')
-
-@client.event
-async def on_member_remove(member, ctx):
-    print(f'{member} has left the server')
 
 @client.command()
 async def hallo(ctx):
@@ -40,15 +33,18 @@ async def waarom(ctx):
 @client.command()
 async def help(ctx):
     embed = discord.Embed(title = 'Dit kan je met mij doen:', color = discord.Color.red())
-    embed.add_field(name = '.help', value = 'Zie de commands die ik heb', inline = False)
+    embed.add_field(name = '.help', value = 'Zie de commands die ik heb', inline = False) 
     embed.add_field(name = '.hallo', value = 'Zeg hallo', inline = False)
     embed.add_field(name = '.kcv', value = 'Laat mij vertellen over kcv', inline = False)
     embed.add_field(name = '.retorica', value = 'Laat mij vertellen over retorica', inline = False)
-    embed.add_field(name = '.waarom', value = 'Daarom')
+    embed.add_field(name = '.waarom', value = 'Daarom', inline = False)
     embed.add_field(name = '.ping', value = 'Zie mijn ping', inline = False)
     embed.add_field(name = '.mysterie', value = 'Wat zal dit command ons brengen?', inline = False)
     embed.add_field(name = '.praise', value = 'Praise mij', inline = False)
+    embed.add_field(name = '.warudo', value = 'za warudo!', inline = False)
     embed.add_field(name = '.meme', value = 'Ik stuur je een meme uit r/memes', inline = False)
+    embed.add_field(name = '.add', value = 'Voeg mij toe aan een server!', inline = False)
+
     await ctx.send(embed=embed)
 
 @client.command()
@@ -64,6 +60,10 @@ async def mysterie(ctx):
     await ctx.send('https://giphy.com/gifs/lgcUUCXgC8mEo')
 
 @client.command()
+async def warudo(ctx):
+    await ctx.send('https://storage-website-gacha.herokuapp.com/Image/theworld.gif')
+
+@client.command()
 async def meme(ctx):
     memes_submissions = reddit.subreddit('memes').hot()
     post_to_pick = random.randint(1, 40)
@@ -71,6 +71,11 @@ async def meme(ctx):
         submission = next(x for x in memes_submissions if not x.stickied)
 
     await ctx.send(submission.url)
+
+@client.command()
+async def add(ctx):
+    embed = discord.Embed(title = 'Voeg mij toe aan een server!', color = discord.Color.red(), url = 'https://discord.com/oauth2/authorize?client_id=729032428529647646&permissions=0&scope=bot', description = '↑ voeg mij toe via deze link ↑')
+    await ctx.send(embed=embed)
 
 @client.command()
 async def retorica(ctx):
