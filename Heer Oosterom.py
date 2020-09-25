@@ -34,10 +34,17 @@ async def waarom(ctx):
 async def help(ctx):
     embed = discord.Embed(title = 'Dit kan je met mij doen:', color = discord.Color.red())
     embed.add_field(name = '.help', value = 'Zie de commands die ik heb', inline = False) 
+    embed.add_field(name = '.help2', value = 'Zie nog meer commands', inline = False)
     embed.add_field(name = '.hallo', value = 'Zeg hallo', inline = False)
     embed.add_field(name = '.kcv', value = 'Laat mij vertellen over kcv', inline = False)
     embed.add_field(name = '.retorica', value = 'Laat mij vertellen over retorica', inline = False)
     embed.add_field(name = '.waarom', value = 'Daarom', inline = False)
+
+    await ctx.send(embed=embed)
+    
+@client.command()
+async def help2(ctx):
+    embed = discord.Embed(title = 'Dit kan je met mij doen:', color = discord.Color.red())
     embed.add_field(name = '.ping', value = 'Zie mijn ping', inline = False)
     embed.add_field(name = '.mysterie', value = 'Wat zal dit command ons brengen?', inline = False)
     embed.add_field(name = '.praise', value = 'Praise mij', inline = False)
@@ -81,4 +88,4 @@ async def add(ctx):
 async def retorica(ctx):
     await ctx.send('Retorica (van het Oudgriekse woord ῥήτωρ, rhêtôr, spreker, leraar; oude Nederlandse spelling rhetorica met rh-), letterlijk redenaarskunst, of welsprekendheid, is de kunst van het spreken in het openbaar. Retorica, dat uit de klassieke oudheid is voortgekomen, is daarmee de oudste westerse teksttheorie. De term staat voor welsprekendheid, maar in uitgebreide zin slaat het op effectief spreken en schrijven en de kunst van het overtuigen. Men gebruikt het begrip dus zowel voor de theorie – de leer van overtuigend spreken en schrijven of retorica – als voor de praktijk ervan. ')
 
-client.run('')
+client.run('token')
